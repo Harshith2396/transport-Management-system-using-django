@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% extends 'employee/navbar.html'%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+	
+    <title></title>
+  </head>
+  <body style="background-color:#343A40;">
+  
+    {% block content%}
+    <form method="POST">
+        {% csrf_token %}
+
+        <table class="table table-dark table-hover table-bordered">
+            <tr>
+                    <th>University Serial Number</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Father's Name</th>
+                    <th>Mother's Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Start Stop</th>
+                    <th>Destination Stop</th>
+                    <th>Change Over</th>
+                    <th>Acknowledgement Number</th>
+                    <th>Status</th>
+                    <th>College</th>
+            </tr>
+           {% for i in allobjs %}
+            <tr>
+                <td>{{i.usn}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.dob}}</td>
+                <td>{{i.gender}}</td>
+                <td>{{i.father}}</td>
+                <td>{{i.mother}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.start}}</td>
+                <td>{{i.destiantion}}</td>
+                <td>{{i.changeover}}</td>
+                <td>{{i.ackno}}</td>
+                <td>{{i.status}}</td>
+                <td>{{i.college}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+		 <div class="centre" style="border:2px solid;margin:2px center;padding:10px;">
+
+		<div class="row">
+		<div class="col-sm-3">
+        <select name="up" id="">
+            {% for i in allobjs %}
+            <option value="{{i.usn}}">{{i.usn}}</option>
+            {{i.emp_id}}
+            {% endfor %}
+        </select>
+		</div>
+		<div class="co;-sm-3">
+        <button name="retrieve">Retrieve</button>
+		</div>
+		<div class="col-sm-3">
+        <button  name="dele" class="btn btn-warning"> Delete</button>
+		</div>
+		</div>
+    </form>
+   
+
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row">
+        <div class="col-sm-3">
+            <label>University Serial Number :</label><b>{{allobj.usn}}</b> <input type="hidden" name="usn" value="{{allobj.usn}}">
+        </div>
+        <div class="col-sm-3">
+           <label>Name:</label><br><input type="text" name="name" id="" value="{{allobj.name}}" required>
+        </div>
+        <div class="col-sm-3">
+           <label> Date of Birth:</label><b>{{allobj.dob}}</b>
+        </div>
+        <div class="col-sm-3">
+           <label>College Name: <b>{{allobj.college}}</b>
+        </div>
+		</div>
+		<div class="row">
+        <div class="col-sm-3">
+           <label> Gender:</label><b>{{allobj.gender}}</b>
+        </div>
+        <div class="col-sm-3">
+            <label>Father's Name:</label><br><input type="text" name="father" value="{{allobj.father}}" required>
+        </div>
+        <div class="col-sm-3">
+           <label>Mother's Name: </label><br><input type="text" name="mother" value="{{allobj.mother}}" required>
+        </div>
+
+       <div class="col-sm-3">
+           <label>Start Stop: </label><b>{{allobj.start}}</b> 
+        </div>
+		</div>
+        <div class="row">
+        <div class="col-sm-3">
+           <label>Destination:</label><b>{{allobj.destiantion}}</b>
+        </div>
+         <div class="col-sm-3">
+           <label>Change over:</label> <b>{{allobj.changeover}}</b> 
+        </div>
+         <div class="col-sm-3">
+            <label>Address:</label> <b>{{allobj.address}}</b>
+        </div>
+         <div class="col-sm-3">
+            <label>Phone:</label><br> <input type="text" name="phone" value="{{allobj.phone}}" required>
+        </div>
+		</div>
+         <div class="row">
+        <div class="col-sm-3">
+           <label> E-mail: </label><br><input type="email" name="email" value="{{allobj.email}}" required>
+        </div>
+        <div class="col-sm-3">
+		<br>
+        <button name="update-students" class="btn btn-secondary">Update</button>
+		</div>
+		</div>
+    </form>
+
+    {%endblock%}
+<style>
+body{
+background-color:grey;
+}
+</style>
+  </body>
+
+</html>

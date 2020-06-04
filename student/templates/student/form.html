@@ -1,0 +1,170 @@
+{% load static %}
+
+
+<html>
+    <title>
+        student bus pass form 
+    </title>
+    <head>
+       <style>
+	   body{
+	    background-image: url("{% static 'student/images/applibckgnd.jpg' %}");
+		 height: 100%;
+         width:100%;
+         background-position: center;
+         background-size: cover;
+         position:relative;
+	   }
+	   div{
+	   color:white;
+	   }
+	   .cf{
+	   position:relative;
+	   top:50px;
+	   left:50px;
+	   }
+	   .c1{
+	   position:relative;
+	   top:28px;
+	   left:500px;
+	   }
+	   .c2{
+	   position:relative;
+	   top:70px;
+	   left:127px;
+	   }
+	   .c3{
+	   position:relative;
+	   top:47px;
+	   left:450px;
+	   }
+	   .c4{
+	   position:relative;
+	   top:90px;
+	   left:160px;
+	   }
+	   .c5{
+	   position:relative;
+	   top:69px;
+	   left:445px;
+	   }
+	   .c6{
+	   position:relative;
+	   top:112px;
+	   left:110px;
+	   }
+	   .c7{
+	   position:relative;
+	   top:89px;
+	   left:473px;
+	   }
+	   .c8{
+	   position:relative;
+	   top:130px;
+	   left:138px;
+	   }
+	   .c9{
+	   position:relative;
+	   top:109px;
+	   left:458px;
+	   }
+	   .c10{
+	   position:relative;
+	   top:150px;
+	   left:152px;
+	   }
+	   .c11{
+	   position:relative;
+	   top:0px;
+	   left:497px;
+	   }
+	   .c12{
+	   position:relative;
+	   top:40px;
+	   left:495px;
+	   }
+	   button{
+	   width:100px;
+	   position:relative;
+	   top:80px;
+	   left:544px;
+	   }
+	   </style>
+    </head>
+    <body>
+        
+    
+    <div class="centre">
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <div class="cf">
+            University Serial Number :<input type="text" name="usn" id="" required>
+        </div>
+        <div class="c1">
+           Name:<input type="text" name="name" id="" required>
+        </div>
+        <div class="c2">
+            Date of Birth: <input type="date" name="dob" id="" required>
+        </div>
+        <div class="c3">
+           College Name:<select  name="college">
+      {% for i in formc %}
+      <option value="{{i.name}}">{{i.name}}</option>
+      {%endfor%}
+    </select>
+        </div>
+        <div class="c4">
+            Gender: 
+            <select name="gender" id="">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="c5">
+            Father's Name: <input type="text" name="father" required>
+            
+        </div>
+        <div class="c6">
+           Mother's Name: <input type="text" name="mother" required>
+        </div>
+        
+        <div class="c7">
+           Start Stop:  <select name="start">
+				{%for i in route%}
+				<option value="{{i.start}}">{{i.start}}</option>
+				{%endfor%}
+			</select>
+        </div>
+        <div class="c8">
+           Destination:  <select name="destination">
+				{%for i in route%}
+				<option value="{{i.destination}}">{{i.destination}}</option>
+				{%endfor%}
+			</select>
+        </div>
+        
+        
+        <div class="c9">
+           Change over: <select name="changeover">
+			   {%for i in route%}
+			   <option value="{{i.changeover}}">{{i.changeover}}</option>
+			   {%endfor%}
+		   </select>
+        </div>
+        <div class="c10">
+            Address: <textarea name="address" id="" cols="30" rows="10" required></textarea>
+        </div>
+        <div class="c11">
+            Phone: <input type="text" name="phone" required>
+        </div>
+        <div class="c12">
+            E-mail: <input type="email" name="email" id="" required>
+        </div>
+        <button type="submit" name="b1" class="btn btn-secondary">apply</button>
+
+
+    </form>
+</div>
+</body>
+</html>

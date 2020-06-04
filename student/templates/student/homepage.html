@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>Transport Homepage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body,html {height: 100%}
+.bgimg {
+  background-image: url("{% static 'student/images/homeimg.png' %}");
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.bottomleft{
+color:white;
+margin-top:400px;
+}
+
+
+.dropdown {
+  float: left;
+}
+
+ .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: rgba(0,0,0,0.3);
+  
+}
+
+.dropdown:hover  {
+  background-color: rgba(0,0,0,0.3);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropbtn:hover{
+font-size:19px;
+}
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size:20px;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(0,0,0,0.2);
+  font-size:25px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+<body>
+<div class="bgimg">
+
+<div class="dropdown">
+    <button class="dropbtn"><b>Home </b>	
+    </button>
+    <div class="dropdown-content">
+    <a  href="{% url 'insert-emp' %}">Employee Login</a><br>
+	<a  href="{% url 'student-login' %}">Student Login</a><br>
+    <a  href="{% url 'stud-app' %}">Student Application</a><br>
+    <a  href="{% url 'college-register'%}">College Registration</a><br>
+    <a  href="{% url 'coll-log' %}">College Login</a><br>
+    <a  href="{% url 'stafflogin2' %}">Staff Login</a>
+    </div>
+  </div> 
+
+  
+ </br>
+  <div class="bottomleft">
+    <p class="line1" style="font-size:30px;">For Offline Buspass</p>
+    <p class="line2" style="font-size:25px;">monday - friday 8.00am-8.00pm | saturday 8.00am-1.00pm</p>
+    <p class="line3" style="font-size:25px;">Any Near By Bus Depot</p>
+  </div>
+  
+ </div> 
+</body>
+</html>
+

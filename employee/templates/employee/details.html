@@ -1,0 +1,90 @@
+{% extends 'employee/navbar.html'%}
+{% load static %}
+<html>
+    <title>
+        student bus pass form
+    </title>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+    </head>
+    {% block content %}
+    <body>
+
+
+    <div class="centre">
+    <form  method="POST">
+        {% csrf_token %}
+        <div class="row">
+		<div class="col-sm-3">
+          <label> Employee Id Number:</label><br><input type="text" name="employee" id="" required>
+        </div>
+        <div class="col-sm-3">
+           <label>Name:</label><br><input type="text" name="name" id="" required>
+        </div>
+        <div class="col-sm-3">
+            <label>Date of Birth:</label><br><input type="date" name="dob" id="" required>
+        </div>
+
+        <div class="col-sm-3">
+            <label>Gender:</label><br>
+            <select name="gender" id="">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+		</div>
+		<div class="row">
+        <div class="col-sm-3">
+            <label>Father's Name:</label><br> <input type="text" name="father" required>
+
+        </div>
+        <div class="col-sm-3">
+           <label>Mother's Name:</label><br> <input type="text" name="mother" required>
+        </div>
+
+
+        <div class="col-sm-3">
+           <label>Designation:</label><br> <select  name="designation">
+             <option value="Driver">Driver</option>
+             <option value="Conductor">Conductor</option>
+
+           </select>
+        </div>
+
+
+
+        <div class="col-sm-3">
+            <label>Address:</label><br> <textarea name="address" style="resize:none;" required></textarea>
+        </div>
+		</div>
+        <div class="row">
+		  <div class="col-sm-3">
+            <label>Phone:</label><br> <input type="text" name="phone" required>
+        </div>
+         <div class="col-sm-3">
+            <label>E-mail:</label><br> <input type="email" name="email" required>
+        </div>
+		</div>
+    <center><button  name="empb" class="btn btn-secondary" style="margin-top:50px;" >apply</button></center>
+    </form>
+</div>
+ 
+        
+<style>
+body{
+	background-color:grey;
+	}
+	.centre{
+	border:2px solid;
+	margin-top:150px;
+	}
+	textarea{
+	width:200px;
+	height:35px;
+	}
+</style>
+</body>
+{% endblock %}
+</html>

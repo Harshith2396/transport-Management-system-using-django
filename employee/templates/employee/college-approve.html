@@ -1,0 +1,44 @@
+<html lang="en" dir="ltr">
+{% extends 'employee/navbar.html'%}
+
+{%block content%}
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form  method="POST">
+
+{%csrf_token%}
+    <table class="table table-dark table-hover">
+      <tr>
+        <th>College Name</th>
+        <th>College Email</th>
+        <th>College Phone </th>
+        <th>College Address</th>
+        <th>Username</th>
+        <th>Paasword</th>
+      </tr>
+    {%for i in table%}
+    <tr>
+      <td>{{i.name}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.phone}}</td>
+      <td>{{i.address}}</td>
+      <td>{{i.username}}</td>
+      <td>{{i.password}}</td>
+    </tr>
+    {%endfor%}
+    </table>
+    <select  name="college">
+      {% for i in forms %}
+      <option value="{{i.name}}">{{i.name}}</option>
+      {%endfor%}
+    </select>
+    Username:<input type="text" name="username" >
+    password:<input type="text" name="password" >
+    <button  name="collapprove">Approve</button>
+    </form>
+  </body>
+  {%endblock%}
+</html>

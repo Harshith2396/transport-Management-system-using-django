@@ -1,0 +1,18 @@
+{% load static %}
+body{
+    background: url("{%static 'student/images/applibckgnd.jpg'%}");
+
+}
+.centre {
+background-color: darkslategrey ;
+max-width: 900px;
+margin: auto;
+padding: 100px;
+opacity: .5;
+
+
+}
+input{
+    text-align: center;
+    display: block;
+}

@@ -1,0 +1,65 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+    <style>
+    body{
+      background-image: url("{%static 'student/images/bck.png'%}");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .bt{
+      height: 25px;
+      width: 80px;
+      background-color: rgb(94, 91, 91);
+     
+    }
+   
+    </style>
+
+</head>
+<body><br>
+   <center> <div id="lab"><b><h1>The details of the assigned duties are below</h1></b></div></center><br><br>
+   <center><table class="table-bordered table-dark table-hover">
+      <tr>
+        <th>Dates</th>
+        <th>Bus Number</th>
+        <th>Conductor Id</th>
+        <th>Driver Id</th>
+        <th>Conductor Name</th>
+        <th>Driver Name</th>
+        <th>Start</th>
+        <th>Destination</th>
+      </tr>
+      {%for d in duty%}
+      <tr>
+          
+          <td>{{d.date}}</td>
+          <td>{{d.bus_no}}</td>
+          <td>{{d.conductor}}</td>
+          <td>{{d.driver}}</td>
+          <td>{{d.conductor_name}}</td>
+          <td>{{d.driver_name}}</td>
+          <td>{{d.start}}</td>
+          <td>{{d.destination}}</td>
+          
+         
+
+      </tr>
+      {%endfor%}
+
+   </table>
+   <br><br>
+   
+   <div class="bt">
+     <b><a style=" color: azure;" href="{% url 'insert-emp'%}">Back</a></b>
+   </div>
+  </center>
+</body>
+</html>

@@ -1,0 +1,123 @@
+{% extends 'employee/navbar.html'%}
+{%block content%}
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+	<style>
+	body{
+	background-image:url("{% static 'student/images/bus.gif' %}");
+	height: 100%;
+    width:100%;
+    background-position: center;
+    background-size: cover;
+    poisition:relative;
+	}
+	.c1{
+	color:white;
+	font-size:25px;
+	position:relative;
+	top:50px;
+	left:50px;
+	}
+	#c11{
+	position:relative;
+	top:50px;
+	left:60px;
+	}
+	.c2{
+	color:white;
+	font-size:25px;
+	position:relative;
+	top:100px;
+	left:50px;
+	}
+	#c22{
+	position:relative;
+	top:100px;
+	left:60px;
+	}
+	.c3{
+	color:white;
+	font-size:25px;
+	position:relative;
+	top:150px;
+	left:50px;
+	}
+	#c33{
+	position:relative;
+	top:150px;
+	left:60px;
+	}
+	.btn{
+	color:white;
+	font-size:20px;
+	position:relative;
+	top:100px;
+	left:450px;
+	}
+	.c4{
+	color:white;
+	font-size:25px;
+	position:relative;
+	top:150px;
+	left:50px;
+	}
+	#c44{
+	position:relative;
+	top:150px;
+	left:60px;
+	}
+	.c5{
+	color:white;
+	font-size:25px;
+	position:relative;
+	top:200px;
+	left:50px;
+	}
+	#c55{
+	position:relative;
+	top:200px;
+	left:60px;
+	}
+	.c6{
+	color:white;
+	font-size:25px;
+	position:relative;
+	top:250px;
+	left:50px;
+	}
+	#c66{
+	position:relative;
+	top:250px;
+	left:60px;
+	}
+	.btnn{
+	color:white;
+	font-size:20px;
+	position:relative;
+	top:210px;
+	left:450px;
+	}
+	</style>
+  </head>
+  <body>
+    <form class=""  method="POST">
+      {%csrf_token%}
+      <label class="c1">Bus Number:</label> <input id="c11" type="text" name="bus_no" ></br>
+      <label class="c2">Bus Stand Name:</label> <input id="c22" type="text" name="bus_stand_name" ></br>
+      <label class="c3">Bus Service Years:</label> <input id="c33" type="text" name="bus_service_years" ></br>
+      <button class="btn btn-secondary" name="bus_button">Save</button>
+    </form>
+    <form class=""  method="POST">
+      {% csrf_token%}
+      <label class="c4">Start Stop:</label> <input id="c44" type="text" name="start" ></br>
+      <label class="c5">Destination Stop:</label> <input id="c55" type="text" name="destination" ></br>
+      <label class="c6">Change Over: </label> <input id="c66" type="text" name="change" ></br>
+      <button class="btnn btn-secondary"  name="routes_button">Save</button>
+    </form>
+
+  </body>
+</html>
+{%endblock%}

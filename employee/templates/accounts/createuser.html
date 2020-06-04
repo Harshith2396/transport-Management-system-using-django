@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form  method="POST">
+    {%csrf_token%}
+      <select  name="">
+        {%for i in employee%}
+        <option value="{{i.emp_id}}">{{i.emp_id}}</option>
+        {%endfor%}
+      </select>
+      {{form.as_p}}
+      <button type="submit" name="createuser">create</button>
+    </form>
+  </body>
+</html>

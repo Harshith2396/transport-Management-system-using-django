@@ -1,0 +1,42 @@
+{%load static%}
+
+<html>
+    <head>
+        <style>
+            body{
+                background-image: url("{%static 'student/images/bck2.jpg' %}");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .notre{
+                width: 300px;
+                height: 30px;
+                background-color:grey;
+                color: rgb(34, 37, 37);
+            }
+            label{
+                
+               
+
+                font: bold;
+                font-size: 22px;
+            }
+        </style>
+    </head>
+    <body>
+        <b><center><h1>Welcome   {{user.name}}</h1></center></b>
+        <center><b><h3>The Details of your duty with your co-worker are displayed below</h3></b></center>
+        <form  method="POST">
+            
+            <input type="hidden" name="sthidden" value={{user.emp_id}}>
+         {%for assigns in assign%} 
+          <center><div class="notre"><b><label>Driver ID : {{assigns.driver}}</label></b></div></center><br><br>
+          <center><div class="notre"><b><label> Driver Name : {{assigns.driver_name}}</label></b></div></center> <br><br>
+          <center><div class="notre"><b><label>Conductor ID : {{assigns.conductor}}</label></b></div></center><br><br>
+          <center><div class="notre"><b><label>Conductor Name : {{assigns.conductor_name}}</label></b></div></center> <br><br>
+          <center><div class="notre"><b><label>Start Stop : {{assigns.start}}</label></b></div></center> <br><br>
+          <center><div class="notre"><b><label>Destination Stop : {{assigns.destination}}</label></b></div></center> <br><br>
+           {%endfor%}
+        </form>
+    </body>
+</html>

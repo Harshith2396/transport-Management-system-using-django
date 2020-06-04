@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+	<div class="jumbotron" style="background-color:rgba(0,0,0,0.2);">
+  <center><h1 class="display-4"><b>College Name:{{collegename}}</b></h1></center>
+  </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="coll" value="{{collegename}}">
+        <button name="show"> show</button>
+        <table class="table table-dark table-hover">
+            <tr>
+                    <th>University Serial Number</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Father's Name</th>
+                    <th>Mother's Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Start Stop</th>
+                    <th>Destination Stop</th>
+                    <th>Change Over</th>
+                    <th>College</th>
+            </tr>
+           {% for i in allobjs %}
+            <tr>
+                <td>{{i.usn}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.dob}}</td>
+                <td>{{i.gender}}</td>
+                <td>{{i.father}}</td>
+                <td>{{i.mother}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.start}}</td>
+                <td>{{i.destiantion}}</td>
+                <td>{{i.changeover}}</td>
+                <td>{{i.college}}</td>
+              </tr>
+            {%endfor%}
+        </table>
+
+<select class="" name="usn">
+  {% for i in allobjs %}
+  <option value="{{i.usn}}">{{i.usn}}</option>
+  {%endfor%}
+</select>
+
+
+        <button name="appr">Approve</button>
+    </form>
+	<style>
+	body{
+	background-image:url("{% static 'student/images/clgapp.jpg' %}");
+	height: 100%;
+    width:100%;
+    background-position: center;
+    background-size: cover;
+    poisition:relative;
+	}
+	</style>
+  </body>
+</html>

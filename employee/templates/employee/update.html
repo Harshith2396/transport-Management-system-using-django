@@ -1,0 +1,129 @@
+<html>
+    {% extends 'employee/navbar.html'%}
+    <head>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    </head>
+    {% block content %}
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <table style="margin-top:20px;" class="table table-dark table-hover">
+                <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>Father's Name</th>
+                        <th>Mother's Name</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Phone number</th>
+                        <th>Designation</th>
+                </tr>
+               {% for i in allobjs %}
+                <tr>
+                    <td>{{i.emp_id}}</td>
+                    <td>{{i.name}}</td>
+                      <td>{{i.dob}}</td>
+                    <td>{{i.gender}}</td>
+                    <td>{{i.father}}</td>
+                    <td>{{i.mother}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.designation}}</td>
+
+                </tr>
+                {%endfor%}
+            </table><div class="fora">
+			<div class="row" style="display:block;">
+			<div class="col-sm-3">
+            <select name="emp" id="">
+                {% for i in allobjs %}
+                <option value="{{i.emp_id}}">{{i.emp_id}}</option>
+                
+                {% endfor %}
+            </select>
+            <button name="update-emp">retrieve</button>
+			</div>
+			</div>
+        </form>
+		
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+			<div class="col-sm-3">
+            
+                    <label>Employee Id Number:</label><input type="text" name="emp_id" value="{{update.emp_id}}">
+                 
+				 </div>
+				 <div class="col-sm-3">
+                 
+                   <label> Name:</label><br><input type="text" name="name" id="" value="{{update.name}}">
+                
+				 </div>
+				 <div class="col-sm-3">
+                 <div>
+                    <label>  Date of Birth:</label><br> <input type="date" name="dob" id="">
+                 </div>
+				</div>
+                  <div class="col-sm-3">
+                    <label>  Gender:</label> <br> <input type="text"  name="gender" value="{{update.gender}}">
+                 </div>
+				 </div>
+                 <div class="row">
+				  <div class="col-sm-3">
+                     <label>Father's Name: </label><br><input type="text" name="father" value="{{update.father}} ">
+
+                 </div>
+                  <div class="col-sm-3">
+                    <label>Mother's Name:</label><br> <input type="text" name="mother" value="{{update.mother}}">
+                 </div>
+
+
+                  <div class="col-sm-3">
+                    <label>Designation:</label><br> <input type="text" name="designation" id="" value="{{update.designation}} ">
+                 </div>
+
+
+
+                  <div class="col-sm-3">
+
+                     <label>Address:</label><br> <textarea style="resize:none;" name="address">{{update.address}} </textarea>
+                 </div>
+				 </div>
+                 <div class="row">
+				 <div class="col-sm-3">
+                     <label>Phone:</label><br> <input type="text" name="phone" value="{{update.phone}}">
+                 </div>
+                 <div class="col-sm-3">
+                    <label> E-mail: </label><br><input type="email" name="email" id="" value="{{update.email}} ">
+                 </div>
+				 <div class="col-sm-3">
+				 <br>
+                 <button name="b34">Update</button>
+				 </div>
+				 </div>
+        </form>
+		</div>
+<style>
+body{
+background-color:grey;
+}
+.fora{
+margin-left:12px;
+width:auto;
+height:auto;
+border:2px solid;
+
+
+}
+
+</style>
+    </body>
+    {%endblock%}
+</html>

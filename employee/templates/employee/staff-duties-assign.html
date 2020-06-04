@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% extends 'employee/navbar.html' %}
+{% block content %}
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+	<style>
+		body{
+	background-color:#4d0000;
+	min-height:100%;
+  
+}
+	.c1{
+	color:white;
+	font-size:20px;
+	position:fixed;
+	top:100px;
+	left:50px;
+	}
+	.c2{
+	color:white;
+	font-size:20px;
+	position:fixed;
+	top:100px;
+	left:500px;
+	}
+	.c3{
+	color:white;
+	font-size:20px;
+	position:fixed;
+	top:100px;
+	left:850px;
+	}
+	.c4{
+	color:white;
+	font-size:20px;
+	position:fixed;
+	top:300px;
+	left:50px;
+	}
+	.c5{
+	color:white;
+	font-size:20px;
+	position:fixed;
+	top:300px;
+	left:500px;
+	}
+	.c6{
+	color:white;
+	font-size:20px;
+	position:fixed;
+	top:300px;
+	left:850px;
+	}
+	#btn{
+	font-size:20px;
+	position:fixed;
+	top:500px;
+	left:550px;
+	}
+	.main{
+	position:inherited;
+	margin:0 auto;
+	border:2px solid;
+	}
+	</style>
+  </head>
+  <body>
+   <div class="main">
+    <form  method="POST">
+      {%csrf_token%}
+	  <div class="c1">
+    Date:<input type="date" name="date" value=""></br>
+	</div>
+	<div class="c2">
+    Start Stop:<select  name="start">
+      {% for i in routes%}
+      <option value="{{i.start}}">{{i.start}}</option>
+      {%endfor%}
+    </select>
+	 </div>
+	 <div class="c3">
+    Destination Stop:<select  name="destination">
+      {% for i in routes%}
+      <option value="{{i.destination}}">{{i.destination}}</option>
+      {%endfor%}
+    </select>
+	</div>
+	<div class="c4">
+    Drivers:<select  name="drivers">
+      {% for i in drivers%}
+      <option value="{{i.emp_id}}">{{i.emp_id}}</option>
+{%endfor%}
+    </select>
+	</div>
+	<div class="c5">
+    Conductors:<select  name="conductors">
+      {% for i in conductors%}
+      <option value="{{i.emp_id}}">{{i.emp_id}}</option>
+      {%endfor%}
+      </select>
+	  </div>
+	  <div class="c6">
+      Bus Number:<select  name="busnums">
+        {% for i in buses%}
+        <option value="{{i.bus_no}}">{{i.bus_no}}</option>
+{%endfor%}
+    </select>
+	</div>
+    <button  id="btn" name="assign-staff">Assign</button>
+      </form>
+	  </div>
+  </body>
+</html>
+{% endblock %}

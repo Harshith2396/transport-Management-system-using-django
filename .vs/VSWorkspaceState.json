@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bmtc2",
+    "\\bus",
+    "\\bus\\templates",
+    "\\bus\\templates\\bus",
+    "\\student",
+    "\\student\\templates",
+    "\\student\\templates\\student"
+  ],
+  "SelectedNode": "\\student\\templates\\student\\stud_details.html",
+  "PreviewInSolutionExplorer": false
+}

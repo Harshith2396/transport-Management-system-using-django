@@ -1,0 +1,65 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+   <style>
+  
+body{
+    background: url("{%static 'student/images/applibckgnd.jpg'%}");
+}
+h1{
+color:red;
+}
+.main{
+ color:red;
+ opacity:1;
+ animation-name: example;
+  animation-duration: 6s;
+  margin-left:520px;
+}
+@keyframes example {
+  from {opacity:0;color:white;margin:0px;}
+  to {opacity:1;color:red;margin-left:600px;}
+}
+</style>
+  <body>
+
+     <center><h1>Student Buspass Details</h1></center>
+	 <div class="main">
+    {%for i in student%}
+    University Serial Number:{{i.usn}}<br>
+    Name:{{i.name}}<br>
+    Father's Name: {{i.Father}}<br>
+    Mother's Name: {{i.mother}}<br>
+    Date of Birth: {{i.dob}}<br>
+    Gender: {{i.gender}}<br>
+    College: {{i.college}}<br>
+    Address: {{i.address}}<br>
+    Start: {{i.start}}<br>
+    Destination: {{i.destiantion}}<br>
+    Change Over: {{i.changeover}}<br>
+    Acknowledgement Number:{{i.ackno}}<br>
+
+    {% if i.statusc == "No" %}
+    Approved By college: Not approved by college<br>
+    {%else%}
+    Approved By college: YES <br>
+    {%endif%}
+
+    {% if i.status == "not approved" %}
+    Approved By Bus Inspector: Not approved by college<br>
+    {%else%}
+    Approved By Bus Inpector: YES <br>
+    {%endif%}
+
+    E-Mail:{{i.email}} <br>
+
+    Phone:{{i.phone}}<br>
+
+    {%endfor%}
+	</div>
+  </body>
+</html>

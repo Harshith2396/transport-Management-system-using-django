@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+	<style>
+	body{
+	background-image:url("{% static 'student/images/clgloginbckgnd.jpg' %}");
+	height: 100%;
+    width:100%;
+    background-position: center;
+    background-size: cover;
+    poisition:relative;
+	}
+	.main{
+	border:solid;
+	color:rgba(0,0,0,0.2);
+	height:600px;
+	width:400px;
+	box-shadow:2px 2px 2px grey;
+	margin:0 auto;
+	}
+	.m{
+	background-image:url("{% static 'student/images/clglogin.jpg' %}");
+	background-repeat:no-repeat;
+
+	height:200px;
+	width:200px;
+	margin:0 auto;
+	position:relative;
+	top:50px;
+	border-radius:80px;
+	}
+	.c1{
+	position:relative;
+	top:100px;
+	font-size:25px;
+	color:black;
+	}
+	#c11{
+	position:relative;
+	top:50px;
+	left:115px;
+	width:270px;
+	height:20px;
+	}
+	.c2{
+	position:relative;
+	top:100px;
+	font-size:25px;
+	color:black;
+	}
+	#c22{
+	position:relative;
+	top:50px;
+	left:115px;
+	width:270px;
+    height:20px;
+	}
+	#c3{
+	position:relative;
+	top:100px;
+	left:20px;
+	height:40px;
+	width:360px;
+	font-size:25px;
+	}
+	</style>
+  </head>
+  <body>
+ 
+    <form  method="POST">
+	 <div class="main">
+	 <div class="m"></div>
+    {% csrf_token %}
+    <p class="c1"><b>Username: </b></p>
+	<input id="c11" type="text" name="user" value="">
+    <p class="c2"><b>Password: </b></p> 
+	<input id="c22" type="password" name="password" value="">
+    <button id="c3" name="login"><b>Login</b></button>
+</div>
+	</form>
+  </body>
+</html>

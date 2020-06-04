@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+  body{
+ background-image: url("{% static 'student/images/clgregbckgnd.gif' %}");
+  height: 100%;
+  width:100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  poisition:relative;
+}
+.c1{
+position:relative;
+top:120px;
+left:380px;
+font-size:35px;
+}
+.c2{
+position:relative;
+top:200px;
+left:650px;
+font-size:35px;
+}
+.c3{
+position:relative;
+top:270px;
+left:380px;
+font-size:35px;
+}
+.c4{
+position:relative;
+top:350px;
+left:650px;
+font-size:35px;
+}
+button{
+position:relative;
+top:320px;
+left:1090px;
+font-size:20px;
+}
+
+
+  </style>
+  <body>
+    <form class=""  method="POST">
+      {%csrf_token%}
+      <div class="c1">
+      College Name:{{forms.name}}<br>
+      </div>
+      <div class="c2">
+        College email:{{forms.email}}<br>
+      </div>
+      <div class="c3">
+        College Phone:{{forms.phone}}<br>
+      </div>
+      <div class="c4">
+        College address:{{forms.address}}<br>
+      </div>
+      <button type="" name="collreg">Register</button>
+    </form>
+  </body>
+</html>

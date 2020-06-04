@@ -1,0 +1,91 @@
+{% load static %}
+<html>
+<head>
+<title>login</title>
+<style>
+.full{
+ background-image: url("{% static 'student/images/bckgnd.jpg' %}");
+  height: 100%;
+  width:100%;
+  background-position: center;
+  background-size: cover;
+  poisition:relative;
+}
+
+.main{
+background-color:rgba(0,0,0,0.2);
+height:560px;
+width:450px;
+//margin:0 auto;
+float:left;
+border-radius:4%;
+position:relative;
+top:10px;
+}
+#closebtn{
+float:right;
+font-size:30px;
+position:relative;
+right:12px;
+color:white;
+}
+img{
+height:150px;
+width:150px;
+position:relative;
+top:50px;
+left:150px;
+border-radius:50%;
+}
+.input{
+margin-top:100px;
+}
+input[type="text"], input[type="password"],button{
+height:40px;
+width:435px;
+position:relative;
+left:8px;
+right:8px;
+}
+#uname, #pass{
+position:relative;
+left:8px;
+font-size:30px;
+color:white;
+}
+input[type="checkbox"]{
+position:relative;
+left:5px;
+}
+.forgot{
+position:relative;
+left:10px;
+
+}
+</style>
+</head>
+<body>
+
+<div class="full">
+  <div class="main">
+    <span id="closebtn"><b>&times </b></span>
+    <img src="{% static 'student/images/studentimg.png' %}"/>
+	    <form method="POST">
+      {%csrf_token%}
+  <div class="input">
+    <label id="uname">Username</label></br>
+    <input type="text" name="usn" placeholder="Univesity serial number"></br>
+    <label id="pass">Password</label></br>
+    <input type="password" name="password" placeholder="password"></br>
+    </br>
+    </br>
+    <button name="Login">login</button>
+	</form>
+  </div>
+    </br>
+    </br>
+
+  </div>
+</div>
+</body>
+</html>

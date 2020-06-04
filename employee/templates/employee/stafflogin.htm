@@ -1,0 +1,103 @@
+{% load static %}
+<html>
+<head>
+<title>login</title>
+<style>
+  body{
+    background-image: url("{% static 'student/images/studentloginbckgnd.png' %}");
+    background-size: cover;
+  }
+.full{
+ 
+  height: 100%;
+  width:100%;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  
+}
+
+.main{
+background-color:rgba(0,0,0,0.2);
+height:560px;
+width:450px;
+margin: auto;
+float:left;
+border-radius:4%;
+position:relative;
+top:10px;
+}
+#closebtn{
+float:right;
+font-size:30px;
+position:relative;
+right:12px;
+color:white;
+}
+img{
+height:150px;
+width:150px;
+position:relative;
+top:50px;
+left:150px;
+border-radius:50%;
+}
+.input{
+margin-top:100px;
+}
+input[type="text"], input[type="password"],button{
+height:40px;
+width:435px;
+position:relative;
+left:8px;
+right:8px;
+}
+#uname, #pass{
+position:relative;
+left:8px;
+font-size:30px;
+color:white;
+}
+input[type="checkbox"]{
+position:relative;
+left:5px;
+}
+.forgot{
+position:relative;
+left:10px;
+
+}
+#im1{
+  width: 200px;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+<center><b><h1><label style="width: 500px;height: 50;background-color: grey;color: azure;">Employee Login</label></h1></b></center>
+<div class="full">
+  <div class="main">
+    <span id="closebtn"><b>&times </b></span>
+    <img src="{% static 'student/images/worker.jpg' %}" id="im1"/>
+	    <form method="POST">
+      {%csrf_token%}
+  <div class="input">
+    <label id="uname">Username</label></br>
+    <input type="text" name="staffloginid" placeholder="Employee ID"></br>
+    <label id="pass">Password</label></br>
+    <input type="password" name="staffloginpassword" placeholder="password"></br>
+    </br>
+    <label id="uname">Date</label>              e     <input type="date" name="date-st">  
+  </br>
+<br>
+    <button  name="staffloginduty">login</button>
+	</form>
+  </div>
+    </br>
+    </br>
+
+  </div>
+</div>
+</body>
+</html>
